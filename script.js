@@ -105,6 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
             "max-glare": 0.1
         });
 
+        VanillaTilt.init(document.querySelectorAll(".skills-category"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.1
+        });
+
         // Disable tilt on mobile for performance and UX
         if (window.innerWidth > 768) {
             VanillaTilt.init(document.querySelectorAll(".blob-shape"), {

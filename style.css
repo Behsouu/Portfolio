@@ -436,6 +436,11 @@ p {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    transform-style: preserve-3d;
+}
+
+.timeline-content>* {
+    transform: translateZ(30px);
 }
 
 .timeline-content:hover {
@@ -519,6 +524,14 @@ p {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    transform-style: preserve-3d;
+}
+
+.project-card>h3,
+.project-card>p,
+.project-card>.project-icon,
+.project-card>.project-tech {
+    transform: translateZ(40px);
 }
 
 .project-card::before {
@@ -584,6 +597,11 @@ p {
     padding: 2rem;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
+    transform-style: preserve-3d;
+}
+
+.skills-category>* {
+    transform: translateZ(25px);
 }
 
 .skills-category h3 {
