@@ -4,7 +4,7 @@ Bienvenue sur le dépôt de mon portfolio personnel ! 👋
 
 Ce projet présente mon parcours académique, mes expériences professionnelles, mes compétences techniques, ainsi que les différents projets sur lesquels j'ai eu l'opportunité de travailler. Il reflète ma passion pour le développement web, l'ingénierie logicielle et le design d'interfaces.
 
-👉 **Visitez le portfolio en ligne (si hébergé) :** [*Lien vers le site*]
+👉 **Visitez le portfolio en ligne (Hébergé par GitHub Pages) :** [behsouu.github.io/Portfolio/](https://behsouu.github.io/Portfolio/)
 
 ## À propos de moi
 
