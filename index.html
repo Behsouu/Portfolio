@@ -17,6 +17,10 @@
 </head>
 
 <body>
+    <!-- Custom Cursor Setup -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
     <header class="navbar">
         <div class="logo">SR.</div>
         <nav>
@@ -28,9 +32,15 @@
                 <li><a href="#contact" class="btn-primary">Contact</a></li>
             </ul>
         </nav>
-        <button class="menu-toggle" aria-label="Menu" id="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+            <button class="theme-toggle" aria-label="Toggle Dark Mode" id="theme-btn"
+                style="background:none; border:none; font-size:1.5rem; color:var(--text-main); cursor:pointer;">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="menu-toggle" aria-label="Menu" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
     <main>
@@ -38,7 +48,8 @@
             <div class="hero-content">
                 <span class="badge">Bonjour, je suis</span>
                 <h1 class="hero-title">Sina Ramezani</h1>
-                <h2 class="hero-subtitle">Développeur Web & Applications <span class="highlight">Full Stack</span></h2>
+                <h2 class="hero-subtitle">Développeur <span class="highlight" id="typed-text"></span><span
+                        class="typing-cursor">|</span></h2>
                 <p class="hero-description">
                     Étudiant en 1ère année de <strong>Mastère Dev. Manager Full Stack</strong> à l'EFREI Paris
                     (2025-2027) avec <strong>3 ans
@@ -76,7 +87,8 @@
                             <h4>Avancial (Filiale SNCF)</h4>
                             <p>Développement de projets internes. Création et maintenance du backend en <strong>Java
                                     Spring Boot</strong> et développement des interfaces utilisateur avec
-                                <strong>Angular</strong>.</p>
+                                <strong>Angular</strong>.
+                            </p>
                             <div class="tags">
                                 <span>Java</span><span>Spring Boot</span><span>Angular</span>
                             </div>

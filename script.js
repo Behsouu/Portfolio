@@ -121,4 +121,98 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // 6. Custom Cursor Logic
+    const cursor = document.getElementById("custom-cursor");
+    const follower = document.getElementById("cursor-follower");
+
+    if (cursor && follower) {
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+
+            // Follower has a slight delay handled by CSS transition
+            follower.style.left = e.clientX + "px";
+            follower.style.top = e.clientY + "px";
+        });
+
+        // Add hover effect to interactive elements
+        const iterables = document.querySelectorAll("a, button, input, textarea, select");
+        iterables.forEach((el) => {
+            el.addEventListener("mouseenter", () => {
+                cursor.classList.add("hover");
+                follower.classList.add("hover");
+            });
+            el.addEventListener("mouseleave", () => {
+                cursor.classList.remove("hover");
+                follower.classList.remove("hover");
+            });
+        });
+    }
+
+    // 7. Dark Mode Toggle
+    const themeBtn = document.getElementById("theme-btn");
+    if (themeBtn) {
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        if (savedTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+            themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeBtn.addEventListener("click", () => {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            if (currentTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", "light");
+                localStorage.setItem("portfolio-theme", "light");
+                themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            } else {
+                document.documentElement.setAttribute("data-theme", "dark");
+                localStorage.setItem("portfolio-theme", "dark");
+                themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        });
+    }
+
+    // 8. Typing Effect for Hero Subtitle
+    const typedTextSpan = document.getElementById("typed-text");
+    const cursorSpan = document.querySelector(".typing-cursor");
+
+    const textArray = ["Web & Applications", "Full Stack", "Passionné"];
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000; // Delay between current and next text
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+        if (!typedTextSpan) return;
+        if (charIndex < textArray[textArrayIndex].length) {
+            if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            cursorSpan.classList.remove("typing");
+            setTimeout(erase, newTextDelay);
+        }
+    }
+
+    function erase() {
+        if (!typedTextSpan) return;
+        if (charIndex > 0) {
+            if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            cursorSpan.classList.remove("typing");
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+            setTimeout(type, typingDelay + 1100);
+        }
+    }
+
+    if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
+

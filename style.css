@@ -796,3 +796,70 @@ p {
         border-radius: 0;
     }
 }
+/* =========================================
+   DARK MODE THEME
+========================================= */
+[data-theme="dark"] {
+    --bg-main: #121212;
+    --bg-alt: #1E1E1E;
+    --text-main: #F4EFE6;
+    --text-muted: #A0A0A0;
+    --card-bg: rgba(30, 30, 30, 0.85);
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   CUSTOM CURSOR
+========================================= */
+body {
+    cursor: none;
+}
+a, button, input, textarea, select {
+    cursor: none;
+}
+.custom-cursor, .cursor-follower {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background 0.3s;
+}
+.custom-cursor {
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary);
+}
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(226, 135, 67, 0.5);
+    transition: transform 0.1s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
+}
+.custom-cursor.hover {
+    background-color: var(--secondary);
+    width: 15px;
+    height: 15px;
+}
+.cursor-follower.hover {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(163, 177, 138, 0.5);
+}
+
+/* =========================================
+   TYPING EFFECT CURSOR
+========================================= */
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--primary);
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
