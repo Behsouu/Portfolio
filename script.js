@@ -214,5 +214,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (textArray.length) setTimeout(type, newTextDelay + 250);
+
+    // 9. Multilingual Support
+    const langSelect = document.getElementById("lang-select");
+
+    // Default language logic
+    const savedLang = localStorage.getItem("portfolio-lang") || "fr";
+    if (langSelect) {
+        langSelect.value = savedLang;
+    }
+    document.documentElement.lang = savedLang;
+
+    // Apply translations function
+    function applyTranslations(lang) {
+        if (!translations || !translations[lang]) return;
+        const dict = translations[lang];
+
+        // Update regular text nodes
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            if (dict[key]) {
+                el.innerHTML = dict[key];
+            }
+        });
+
+        // Update document title and formatting based on language
+        if (lang === "fa") {
+            document.body.style.direction = "rtl";
+            document.body.style.textAlign = "right";
+        } else {
+            document.body.style.direction = "ltr";
+            document.body.style.textAlign = "left";
+        }
+
+        // Update the typewritter array for the specific language
+        if (dict.hero_roles) {
+            textArray.length = 0; // Clear existing
+            textArray.push(...dict.hero_roles);
+        }
+    }
+
+    // Apply on load
+    applyTranslations(savedLang);
+
+    // Make initial translation array match language
+    if (translations && translations[savedLang] && translations[savedLang].hero_roles) {
+        textArray.length = 0;
+        textArray.push(...translations[savedLang].hero_roles);
+    }
+
+    // Event listener for language change
+    if (langSelect) {
+        langSelect.addEventListener("change", (e) => {
+            const newLang = e.target.value;
+            localStorage.setItem("portfolio-lang", newLang);
+            document.documentElement.lang = newLang;
+            applyTranslations(newLang);
+        });
+    }
 });
 

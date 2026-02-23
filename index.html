@@ -33,6 +33,16 @@
             </ul>
         </nav>
         <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+            <!-- Language Selector -->
+            <select id="lang-select"
+                style="background:transparent; border:none; color:var(--text-main); font-family:inherit; font-weight:600; cursor:pointer; outline:none; font-size:1rem;">
+                <option value="fr">FR 🇫🇷</option>
+                <option value="en">EN 🇬🇧</option>
+                <option value="fa">FA 🇮🇷</option>
+                <option value="zh">ZH 🇨🇳</option>
+                <option value="es">ES 🇪🇸</option>
+            </select>
+            <!-- Theme Toggle -->
             <button class="theme-toggle" aria-label="Toggle Dark Mode" id="theme-btn"
                 style="background:none; border:none; font-size:1.5rem; color:var(--text-main); cursor:pointer;">
                 <i class="fas fa-moon"></i>
@@ -340,6 +350,8 @@
         </div>
     </footer>
 
+    <!-- Translations & JS -->
+    <script src="translations.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
 </body>
