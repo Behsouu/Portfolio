@@ -25,11 +25,11 @@
         <div class="logo">SR.</div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#contact" class="btn-primary">Contact</a></li>
+                <li><a href="#about" data-i18n="nav_about">À propos</a></li>
+                <li><a href="#experience" data-i18n="nav_experience">Expérience</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projets</a></li>
+                <li><a href="#skills" data-i18n="nav_skills">Compétences</a></li>
+                <li><a href="#contact" class="btn-primary" data-i18n="nav_contact">Contact</a></li>
             </ul>
         </nav>
         <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
@@ -56,11 +56,11 @@
     <main>
         <section id="about" class="hero section-spacing pt-nav">
             <div class="hero-content">
-                <span class="badge">Bonjour, je suis</span>
+                <span class="badge" data-i18n="hero_badge">Bonjour, je suis</span>
                 <h1 class="hero-title">Sina Ramezani</h1>
-                <h2 class="hero-subtitle">Développeur <span class="highlight" id="typed-text"></span><span
-                        class="typing-cursor">|</span></h2>
-                <p class="hero-description">
+                <h2 class="hero-subtitle"><span data-i18n="hero_subtitle">Développeur</span> <span class="highlight"
+                        id="typed-text"></span><span class="typing-cursor">|</span></h2>
+                <p class="hero-description" data-i18n="hero_desc">
                     Étudiant en 1ère année de <strong>Mastère Dev. Manager Full Stack</strong> à l'EFREI Paris
                     (2025-2027) avec <strong>3 ans
                         d'expérience</strong>, incluant une dimension en cybersécurité.
@@ -68,8 +68,8 @@
                     tant que développeur <strong>Full Stack</strong>.
                 </p>
                 <div class="hero-actions">
-                    <a href="#projects" class="btn-primary btn-lg">Voir mes projets</a>
-                    <a href="#contact" class="btn-secondary btn-lg">Me contacter</a>
+                    <a href="#projects" class="btn-primary btn-lg" data-i18n="hero_btn_projects">Voir mes projets</a>
+                    <a href="#contact" class="btn-secondary btn-lg" data-i18n="hero_btn_contact">Me contacter</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -85,17 +85,18 @@
         <section id="experience" class="section-spacing bg-warm">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-subtitle">Mon parcours</span>
-                    <h2 class="section-title">Expérience Professionnelle</h2>
+                    <span class="section-subtitle" data-i18n="exp_subtitle">Mon parcours</span>
+                    <h2 class="section-title" data-i18n="exp_title">Expérience Professionnelle</h2>
                 </div>
                 <div class="timeline">
                     <div class="timeline-item reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content card">
-                            <span class="timeline-date">Oct 2025 - Présent</span>
-                            <h3>Alternant Développeur Full Stack</h3>
-                            <h4>Avancial (Filiale SNCF)</h4>
-                            <p>Développement de projets internes. Création et maintenance du backend en <strong>Java
+                            <span class="timeline-date" data-i18n="exp_avancial_date">Oct 2025 - Présent</span>
+                            <h3 data-i18n="exp_avancial_title">Alternant Développeur Full Stack</h3>
+                            <h4 data-i18n="exp_avancial_company">Avancial (Filiale SNCF)</h4>
+                            <p data-i18n="exp_avancial_desc">Développement de projets internes. Création et maintenance
+                                du backend en <strong>Java
                                     Spring Boot</strong> et développement des interfaces utilisateur avec
                                 <strong>Angular</strong>.
                             </p>
@@ -107,10 +108,11 @@
                     <div class="timeline-item reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content card">
-                            <span class="timeline-date">Sept 2024 - Août 2025</span>
-                            <h3>Alternant Développeur Web et Applications</h3>
-                            <h4>MTB111 - L'Aigle</h4>
-                            <p>Développement d'applications sécurisées avec Symfony et Spring Boot. Création d'API REST,
+                            <span class="timeline-date" data-i18n="exp_mtb1_date">Sept 2024 - Août 2025</span>
+                            <h3 data-i18n="exp_mtb1_title">Alternant Développeur Web et Applications</h3>
+                            <h4 data-i18n="exp_mtb1_company">MTB111 - L'Aigle</h4>
+                            <p data-i18n="exp_mtb1_desc">Développement d'applications sécurisées avec Symfony et Spring
+                                Boot. Création d'API REST,
                                 gestion des design patterns en Java et introduction au développement mobile avec Swift
                                 (iOS). Travail en méthode agile (Scrum), développement UX/UI avec Figma, et
                                 visualisation des données (Jakarta EE).</p>
@@ -123,10 +125,11 @@
                     <div class="timeline-item reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content card">
-                            <span class="timeline-date">Sept 2022 - Août 2024</span>
-                            <h3>Alternant Analyste Programmeur</h3>
-                            <h4>MTB111 - L'Aigle</h4>
-                            <p>Développement d'applications web avec Laravel, gestion de bases de données MySQL.
+                            <span class="timeline-date" data-i18n="exp_mtb2_date">Sept 2022 - Août 2024</span>
+                            <h3 data-i18n="exp_mtb2_title">Alternant Analyste Programmeur</h3>
+                            <h4 data-i18n="exp_mtb2_company">MTB111 - L'Aigle</h4>
+                            <p data-i18n="exp_mtb2_desc">Développement d'applications web avec Laravel, gestion de bases
+                                de données MySQL.
                                 Rédaction de spécifications techniques et documentation. Participation aux tests de
                                 cybersécurité et corrections de bugs dans un cadre de bug bounty.</p>
                             <div class="tags">
@@ -141,56 +144,61 @@
         <section id="projects" class="section-spacing">
             <div class="container">
                 <div class="section-header text-center">
-                    <span class="section-subtitle">Mes réalisations</span>
-                    <h2 class="section-title">Projets Récents</h2>
+                    <span class="section-subtitle" data-i18n="proj_subtitle">Mes réalisations</span>
+                    <h2 class="section-title" data-i18n="proj_title">Projets Récents</h2>
                 </div>
                 <div class="projects-grid">
                     <div class="project-card reveal">
                         <div class="project-icon" style="background: #FFE8D6; color: #E28743;">
                             <i class="fas fa-folder-open"></i>
                         </div>
-                        <h3>Algorithme de fichiers</h3>
-                        <p>Remplacement et renommage de fichiers, avec reconnaissance des types.</p>
+                        <h3 data-i18n="proj_1_title">Algorithme de fichiers</h3>
+                        <p data-i18n="proj_1_desc">Remplacement et renommage de fichiers, avec reconnaissance des types.
+                        </p>
                         <span class="project-tech">Java</span>
                     </div>
                     <div class="project-card reveal" style="transition-delay: 100ms;">
                         <div class="project-icon" style="background: #D8F3DC; color: #52B788;">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h3>Gestion du temps d'écran</h3>
-                        <p>Application envoyant des alertes pour limiter et gérer le temps d'écran.</p>
+                        <h3 data-i18n="proj_2_title">Gestion du temps d'écran</h3>
+                        <p data-i18n="proj_2_desc">Application envoyant des alertes pour limiter et gérer le temps
+                            d'écran.</p>
                         <span class="project-tech">Java</span>
                     </div>
                     <div class="project-card reveal" style="transition-delay: 200ms;">
                         <div class="project-icon" style="background: #E0AAFF; color: #7B2CBF;">
                             <i class="fas fa-bullhorn"></i>
                         </div>
-                        <h3>App Web Interne</h3>
-                        <p>Plateforme de gestion d'annonces destinée aux employés de l'entreprise.</p>
+                        <h3 data-i18n="proj_3_title">App Web Interne</h3>
+                        <p data-i18n="proj_3_desc">Plateforme de gestion d'annonces destinée aux employés de
+                            l'entreprise.</p>
                         <span class="project-tech">PHP • Laravel</span>
                     </div>
                     <div class="project-card reveal">
                         <div class="project-icon" style="background: #A9DEF9; color: #0077B6;">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
-                        <h3>RFTG Android</h3>
-                        <p>Application Android pour la réservation et la location de films.</p>
+                        <h3 data-i18n="proj_4_title">RFTG Android</h3>
+                        <p data-i18n="proj_4_desc">Application Android pour la réservation et la location de films.</p>
                         <span class="project-tech">Java • XML • Android Studio</span>
                     </div>
                     <div class="project-card reveal" style="transition-delay: 100ms;">
                         <div class="project-icon" style="background: #FCF6BD; color: #D4A373;">
                             <i class="fas fa-server"></i>
                         </div>
-                        <h3>Backend RFTG</h3>
-                        <p>Gestion des utilisateurs et du catalogue de films pour l'application mobile.</p>
+                        <h3 data-i18n="proj_5_title">Backend RFTG</h3>
+                        <p data-i18n="proj_5_desc">Gestion des utilisateurs et du catalogue de films pour l'application
+                            mobile.</p>
                         <span class="project-tech">PHP • Laravel</span>
                     </div>
                     <div class="project-card reveal" style="transition-delay: 200ms;">
                         <div class="project-icon" style="background: #FFD6A5; color: #FF9F1C;">
                             <i class="fas fa-address-book"></i>
                         </div>
-                        <h3>Annuaire d'entreprise</h3>
-                        <p>Gestion des contacts internes de l'entreprise via une interface dédiée.</p>
+                        <h3 data-i18n="proj_6_title">Annuaire d'entreprise</h3>
+                        <p data-i18n="proj_6_desc">Gestion des contacts internes de l'entreprise via une interface
+                            dédiée.</p>
                         <span class="project-tech">Symfony</span>
                     </div>
                 </div>
@@ -200,13 +208,13 @@
         <section id="skills" class="section-spacing bg-warm">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-subtitle">Mon expertise</span>
-                    <h2 class="section-title">Compétences</h2>
+                    <span class="section-subtitle" data-i18n="skills_subtitle">Mon expertise</span>
+                    <h2 class="section-title" data-i18n="skills_title">Compétences</h2>
                 </div>
 
                 <div class="skills-wrapper">
                     <div class="skills-category reveal">
-                        <h3><i class="fas fa-laptop-code"></i> Langages</h3>
+                        <h3><i class="fas fa-laptop-code"></i> <span data-i18n="skills_lang">Langages</span></h3>
                         <div class="skills-list">
                             <span class="skill-tag"><i class="devicon-java-plain colored"></i> Java</span>
                             <span class="skill-tag"><i class="devicon-php-plain colored"></i> PHP</span>
@@ -219,7 +227,8 @@
                     </div>
 
                     <div class="skills-category reveal" style="transition-delay: 100ms;">
-                        <h3><i class="fas fa-layer-group"></i> Frameworks & Techs</h3>
+                        <h3><i class="fas fa-layer-group"></i> <span data-i18n="skills_frameworks">Frameworks &
+                                Techs</span></h3>
                         <div class="skills-list">
                             <span class="skill-tag outline"><i class="devicon-symfony-original colored"></i>
                                 Symfony</span>
@@ -236,7 +245,7 @@
                     </div>
 
                     <div class="skills-category reveal" style="transition-delay: 200ms;">
-                        <h3><i class="fas fa-tools"></i> Méthodes & Outils</h3>
+                        <h3><i class="fas fa-tools"></i> <span data-i18n="skills_tools">Méthodes & Outils</span></h3>
                         <div class="skills-list">
                             <span class="skill-tag"><i class="fas fa-sync-alt"></i> Agile (Scrum)</span>
                             <span class="skill-tag"><i class="devicon-figma-plain colored"></i> Figma</span>
@@ -250,7 +259,7 @@
                     </div>
 
                     <div class="skills-category reveal" style="transition-delay: 300ms;">
-                        <h3><i class="fas fa-database"></i> Bases de données</h3>
+                        <h3><i class="fas fa-database"></i> <span data-i18n="skills_db">Bases de données</span></h3>
                         <div class="skills-list">
                             <span class="skill-tag outline"><i class="devicon-mysql-plain colored"></i> MySQL</span>
                             <span class="skill-tag outline"><i class="devicon-postgresql-plain colored"></i>
@@ -265,55 +274,60 @@
             <div class="container dual-col">
                 <div class="education reveal">
                     <div class="section-header">
-                        <span class="section-subtitle">Formation</span>
-                        <h2 class="section-title">Parcours Académique</h2>
+                        <span class="section-subtitle" data-i18n="edu_subtitle">Formation</span>
+                        <h2 class="section-title" data-i18n="edu_title">Parcours Académique</h2>
                     </div>
                     <ul class="edu-list">
                         <li>
-                            <div class="edu-year">2025 - 2027 (En cours)</div>
-                            <div class="edu-title">Mastère Dev. Manager Full Stack</div>
-                            <div class="edu-school">EFREI Paris - Ecole d'ingénieur</div>
+                            <div class="edu-year" data-i18n="edu_master_date">2025 - 2027 (En cours)</div>
+                            <div class="edu-title" data-i18n="edu_master_title">Mastère Dev. Manager Full Stack</div>
+                            <div class="edu-school" data-i18n="edu_master_school">EFREI Paris - Ecole d'ingénieur</div>
                         </li>
                         <li>
-                            <div class="edu-year">2024 - 2025</div>
-                            <div class="edu-title">Bachelor Développeur Web & Application</div>
-                            <div class="edu-school">EFREI Paris - Ecole d'ingénieur</div>
+                            <div class="edu-year" data-i18n="edu_bachelor_date">2024 - 2025</div>
+                            <div class="edu-title" data-i18n="edu_bachelor_title">Bachelor Développeur Web & Application
+                            </div>
+                            <div class="edu-school" data-i18n="edu_bachelor_school">EFREI Paris - Ecole d'ingénieur
+                            </div>
                         </li>
                         <li>
-                            <div class="edu-year">2022 - 2024</div>
-                            <div class="edu-title">BTS SIO SLAM</div>
-                            <div class="edu-school">Lycée Napoléon, L'Aigle</div>
+                            <div class="edu-year" data-i18n="edu_bts_date">2022 - 2024</div>
+                            <div class="edu-title" data-i18n="edu_bts_title">BTS SIO SLAM</div>
+                            <div class="edu-school" data-i18n="edu_bts_school">Lycée Napoléon, L'Aigle</div>
                         </li>
                         <li>
-                            <div class="edu-year">2019 - 2022</div>
-                            <div class="edu-title">BAC Technologique (STI2D)</div>
-                            <div class="edu-school">Lycée Napoléon, L'Aigle</div>
+                            <div class="edu-year" data-i18n="edu_bac_date">2019 - 2022</div>
+                            <div class="edu-title" data-i18n="edu_bac_title">BAC Technologique (STI2D)</div>
+                            <div class="edu-school" data-i18n="edu_bac_school">Lycée Napoléon, L'Aigle</div>
                         </li>
                     </ul>
                 </div>
 
                 <div class="extra reveal" style="transition-delay: 200ms;">
                     <div class="section-header">
-                        <span class="section-subtitle">Plus sur moi</span>
-                        <h2 class="section-title">Langues & Passions</h2>
+                        <span class="section-subtitle" data-i18n="misc_subtitle">Plus sur moi</span>
+                        <h2 class="section-title" data-i18n="misc_title">Langues & Passions</h2>
                     </div>
 
                     <div class="languages card">
-                        <h4>🌍 Langues</h4>
+                        <h4 data-i18n="misc_lang_title">🌍 Langues</h4>
                         <ul>
-                            <li><strong>Français :</strong> Courant</li>
-                            <li><strong>Anglais :</strong> Intermédiaire</li>
-                            <li><strong>Dari / Persan :</strong> Natif</li>
-                            <li><strong>Espagnol :</strong> Notions</li>
+                            <li data-i18n="misc_lang_fr"><strong>Français :</strong> Courant</li>
+                            <li data-i18n="misc_lang_en"><strong>Anglais :</strong> Intermédiaire</li>
+                            <li data-i18n="misc_lang_fa"><strong>Dari / Persan :</strong> Natif</li>
+                            <li data-i18n="misc_lang_es"><strong>Espagnol :</strong> Notions</li>
                         </ul>
                     </div>
 
                     <div class="hobbies card mt-4">
-                        <h4>⚽ Centres d'intérêt</h4>
-                        <p><strong>Football :</strong> 7 ans en club. Pratique régulière et esprit d'équipe.</p>
-                        <p><strong>Jeux Vidéo :</strong> Streamer occasionnel (Valorant, FIFA). Communication et
+                        <h4 data-i18n="misc_hobbies_title">⚽ Centres d'intérêt</h4>
+                        <p data-i18n="misc_hobbies_foot"><strong>Football :</strong> 7 ans en club. Pratique régulière
+                            et esprit d'équipe.</p>
+                        <p data-i18n="misc_hobbies_games"><strong>Jeux Vidéo :</strong> Streamer occasionnel (Valorant,
+                            FIFA). Communication et
                             stratégie.</p>
-                        <p><strong>Animés :</strong> Passionné par la culture et le visionnage d'animés.</p>
+                        <p data-i18n="misc_hobbies_anime"><strong>Animés :</strong> Passionné par la culture et le
+                            visionnage d'animés.</p>
                     </div>
                 </div>
             </div>
@@ -323,8 +337,9 @@
     <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-content text-center">
-                <h2>Prêt à collaborer ?</h2>
-                <p>Je suis toujours ouvert à de nouveaux échanges. N'hésitez pas à me contacter !</p>
+                <h2 data-i18n="footer_title">Prêt à collaborer ?</h2>
+                <p data-i18n="footer_desc">Je suis toujours ouvert à de nouveaux échanges. N'hésitez pas à me contacter
+                    !</p>
                 <div class="contact-links">
                     <a href="mailto:sina.ramezani.off@gamil.com" class="contact-card">
                         <i class="fas fa-envelope"></i>
@@ -345,7 +360,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Sina Ramezani. Tous droits réservés.</p>
+                <p>&copy; 2025 Sina Ramezani. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
             </div>
         </div>
     </footer>
