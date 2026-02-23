@@ -951,3 +951,14 @@ a, button, input, textarea, select {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+
+/* ===== BUTTON/BADGE DARK MODE VISIBILITY FIXES ===== */
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .badge {
+    color: #1a1a1a !important; 
+    font-weight: 700;
+}
+[data-theme="dark"] .btn-secondary:hover {
+    color: #ffffff !important;
+}
+
