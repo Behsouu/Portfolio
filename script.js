@@ -272,5 +272,49 @@ document.addEventListener('DOMContentLoaded', () => {
             applyTranslations(newLang);
         });
     }
+
+    // 10. Scroll Progress Bar & Back to Top Button
+    const scrollBar = document.getElementById("myBar");
+    const backToTopBtn = document.getElementById("back-to-top");
+
+    window.addEventListener("scroll", () => {
+        // Progress bar logic
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (scrollBar) {
+            scrollBar.style.width = scrolled + "%";
+        }
+
+        // Back to top logic
+        if (backToTopBtn) {
+            if (winScroll > 300) {
+                backToTopBtn.classList.add("visible");
+            } else {
+                backToTopBtn.classList.remove("visible");
+            }
+        }
+    });
+
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
+    // Interactive hover for back to top button (custom cursor)
+    if (backToTopBtn && cursor && follower) {
+        backToTopBtn.addEventListener("mouseenter", () => {
+            cursor.classList.add("hover");
+            follower.classList.add("hover");
+        });
+        backToTopBtn.addEventListener("mouseleave", () => {
+            cursor.classList.remove("hover");
+            follower.classList.remove("hover");
+        });
+    }
 });
 
