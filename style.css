@@ -796,6 +796,7 @@ p {
         border-radius: 0;
     }
 }
+
 /* =========================================
    DARK MODE THEME
 ========================================= */
@@ -815,10 +816,17 @@ p {
 body {
     cursor: none;
 }
-a, button, input, textarea, select {
+
+a,
+button,
+input,
+textarea,
+select {
     cursor: none;
 }
-.custom-cursor, .cursor-follower {
+
+.custom-cursor,
+.cursor-follower {
     position: fixed;
     border-radius: 50%;
     pointer-events: none;
@@ -826,22 +834,26 @@ a, button, input, textarea, select {
     transform: translate(-50%, -50%);
     transition: width 0.3s, height 0.3s, background 0.3s;
 }
+
 .custom-cursor {
     width: 10px;
     height: 10px;
     background-color: var(--primary);
 }
+
 .cursor-follower {
     width: 40px;
     height: 40px;
     border: 2px solid rgba(226, 135, 67, 0.5);
     transition: transform 0.1s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
 }
+
 .custom-cursor.hover {
     background-color: var(--secondary);
     width: 15px;
     height: 15px;
 }
+
 .cursor-follower.hover {
     width: 60px;
     height: 60px;
@@ -858,9 +870,17 @@ a, button, input, textarea, select {
     margin-left: 2px;
     animation: blink 0.7s infinite;
 }
+
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 
@@ -875,6 +895,7 @@ a, button, input, textarea, select {
     height: 4px;
     background: transparent;
 }
+
 .scroll-progress-bar {
     height: 4px;
     background: var(--primary);
@@ -911,19 +932,22 @@ a, button, input, textarea, select {
     transform: translateY(20px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .back-to-top.visible {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
+
 .back-to-top:hover {
     background: var(--primary);
     color: var(--white);
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(226, 135, 67, 0.4);
 }
+
 [data-theme="dark"] .back-to-top {
-    background: rgba(30,30,30,0.5);
+    background: rgba(30, 30, 30, 0.5);
 }
 
 /* =========================================
@@ -943,10 +967,15 @@ a, button, input, textarea, select {
 [data-theme="dark"] .edu-school {
     color: var(--text-main);
 }
+
 [data-theme="dark"] p {
     color: var(--text-muted);
 }
-[data-theme="dark"] .skills-category, [data-theme="dark"] .card, [data-theme="dark"] .project-card, [data-theme="dark"] .timeline-content {
+
+[data-theme="dark"] .skills-category,
+[data-theme="dark"] .card,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .timeline-content {
     background-color: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -955,17 +984,187 @@ a, button, input, textarea, select {
 /* ===== BUTTON/BADGE DARK MODE VISIBILITY FIXES ===== */
 [data-theme="dark"] .btn-secondary,
 [data-theme="dark"] .badge {
-    color: #1a1a1a !important; 
+    color: #1a1a1a !important;
     font-weight: 700;
 }
+
 [data-theme="dark"] .btn-secondary:hover {
     color: #ffffff !important;
 }
 
 
 /* Custom Language Dropdown UI */
-.lang-options { display: none; position: absolute; top: 130%; right: -10px; background: var(--card-bg); border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); min-width: 90px; z-index: 1000; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.05); }
-.lang-options.show { display: block; }
-.lang-options div { padding: 8px 16px; transition: background 0.2s; white-space: nowrap; font-weight: 500;} 
-.lang-options div:hover { background: var(--bg-alt); }
+.lang-options {
+    display: none;
+    position: absolute;
+    top: 130%;
+    right: -10px;
+    background: var(--card-bg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    min-width: 90px;
+    z-index: 1000;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
 
+.lang-options.show {
+    display: block;
+}
+
+.lang-options div {
+    padding: 8px 16px;
+    transition: background 0.2s;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.lang-options div:hover {
+    background: var(--bg-alt);
+}
+
+/* =========================================
+   Aesthetic Promo Backgrounds (Games)
+========================================= */
+
+#quiz-promo {
+    position: relative;
+    background: var(--bg-alt);
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(226, 135, 67, 0.12), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(163, 177, 138, 0.12), transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(244, 196, 48, 0.08), transparent 40%);
+    overflow: hidden;
+    z-index: 1;
+}
+
+#quiz-promo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(226, 135, 67, 0.05) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(226, 135, 67, 0.05) 2px, transparent 2px);
+    background-size: 40px 40px;
+    background-position: center center;
+    mask-image: radial-gradient(circle at center, black 10%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 10%, transparent 80%);
+}
+
+#snake-promo {
+    position: relative;
+    background-color: #1a1a24;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#snake-promo .section-subtitle,
+#snake-promo .section-title,
+#snake-promo p {
+    color: #f1f2f6 !important;
+}
+
+#snake-promo::before {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image:
+        linear-gradient(rgba(226, 135, 67, 0.25) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(226, 135, 67, 0.25) 2px, transparent 2px);
+    background-size: 50px 50px;
+    background-position: center bottom;
+    transform: perspective(600px) rotateX(75deg);
+    transform-origin: center center;
+    z-index: -1;
+    mask-image: linear-gradient(to top, black 20%, transparent 70%);
+    -webkit-mask-image: linear-gradient(to top, black 20%, transparent 70%);
+}
+
+#snake-promo::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(226, 135, 67, 0.15) 0%, transparent 60%);
+    z-index: -2;
+}
+
+/* =========================================
+   RPG 3D Mode Styling
+========================================= */
+
+/* When RPG mode is active, hide main portfolio elements */
+body.rpg-active>header,
+body.rpg-active>main,
+body.rpg-active>footer,
+body.rpg-active>.scroll-progress-container,
+body.rpg-active>.back-to-top,
+body.rpg-active>.custom-cursor,
+body.rpg-active>.cursor-follower {
+    display: none !important;
+}
+
+body.rpg-active {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#rpg-mode-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a1a24;
+    z-index: 9999;
+}
+
+#rpg-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#rpg-ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let canvas capture drag/clicks */
+}
+
+#rpg-ui-layer>* {
+    pointer-events: auto;
+    /* Re-enable pointer events for UI buttons */
+}
+
+/* Custom scrollbar for RPG popups */
+#rpg-popup-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#rpg-popup-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#rpg-popup-content::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}

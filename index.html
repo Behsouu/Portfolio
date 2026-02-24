@@ -55,6 +55,11 @@
                             alt="Tamil Eelam" style="height:14px; border-radius:1px;"></div>
                 </div>
             </div>
+            <!-- RPG Mode Toggle -->
+            <button id="rpg-mode-btn" class="btn btn-primary"
+                style="display: flex; align-items: center; gap: 8px; padding: 6px 14px; font-size: 0.9rem;">
+                <i class="fas fa-gamepad"></i> <span class="hidden-mobile" data-i18n="nav_rpg_mode">Mode RPG</span>
+            </button>
             <!-- Theme Toggle -->
             <button class="theme-toggle" aria-label="Toggle Dark Mode" id="theme-btn"
                 style="background:none; border:none; font-size:1.5rem; color:var(--text-main); cursor:pointer;">
@@ -422,10 +427,46 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- RPG 3D Mode Container -->
+    <div id="rpg-mode-container" class="hidden">
+        <!-- 3D Canvas will be injected here -->
+        <div id="rpg-canvas-container"></div>
+
+        <!-- UI Overlay -->
+        <div id="rpg-ui-layer">
+            <button id="rpg-close-btn" class="btn btn-outline"
+                style="position: absolute; top: 20px; right: 20px; z-index: 1001; background: var(--card-bg); backdrop-filter: blur(10px);">
+                <i class="fas fa-times"></i> <span data-i18n="rpg_close">Quitter RPG</span>
+            </button>
+
+            <div id="rpg-interaction-hint" class="hidden"
+                style="position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); z-index: 1001; background: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 20px; font-weight: 600; font-size: 1.1rem; pointer-events: none; text-align: center;">
+                <span class="hidden-mobile">Appuyez sur 'E' ou </span>Cliquez pour interagir
+            </div>
+
+            <div id="rpg-popup" class="hidden"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1002; background: var(--card-bg); backdrop-filter: blur(15px); padding: 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); width: 90%; max-width: 600px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                <h2 id="rpg-popup-title" style="margin-top:0; margin-bottom: 20px; color: var(--primary);">Title</h2>
+                <div id="rpg-popup-content"
+                    style="max-height: 50vh; overflow-y: auto; margin-bottom: 25px; line-height: 1.6;">Content</div>
+                <button id="rpg-popup-close" class="btn btn-primary btn-block">Fermer</button>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div id="rpg-joystick-zone" class="hidden-desktop"
+                style="position: absolute; bottom: 20px; left: 20px; width: 120px; height: 120px; z-index: 1001; border-radius: 50%; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);">
+            </div>
+            <button id="rpg-interact-btn" class="btn-icon hidden-desktop hidden"
+                style="position: absolute; bottom: 40px; right: 40px; z-index: 1001; width: 60px; height: 60px; background: var(--primary); color: white; border: none; font-size: 1.5rem;"></button>
+        </div>
+    </div>
+
     <!-- Translations & JS -->
     <script src="translations.js?v=2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
+    <!-- RPG Entry Point -->
+    <script type="module" src="rpg3d/main.js"></script>
 </body>
 
 </html>
