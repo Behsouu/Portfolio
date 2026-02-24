@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Snake Antigravity - Portfolio</title>
+    <meta name="description" content="Mini-projet Snake classique développé en HTML5 Canvas et Vanilla JS.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">Snake<span>Antigravity</span></div>
+        <div class="header-actions">
+            <button id="sound-toggle" class="btn-icon" aria-label="Activer/Désactiver le son">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <button id="theme-toggle" class="btn-icon" aria-label="Basculer le thème">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="game-wrapper">
+            <!-- HUD -->
+            <div id="hud" class="hud hidden">
+                <div class="hud-item">
+                    <i class="fas fa-star"></i> Score: <span id="current-score">0</span>
+                </div>
+                <div class="hud-item">
+                    <i class="fas fa-trophy"></i> Meilleur: <span id="best-score">0</span>
+                </div>
+                <div class="hud-item hud-actions">
+                    <button id="pause-btn" class="btn-icon small"><i class="fas fa-pause"></i></button>
+                </div>
+            </div>
+
+            <!-- Canvas Container -->
+            <div class="canvas-container">
+                <canvas id="game-canvas"></canvas>
+
+                <!-- Overlay: Home -->
+                <div id="overlay-home" class="overlay active">
+                    <h2>Prêt à jouer ?</h2>
+                    <p class="subtitle">Mangez les fruits, devenez géant.</p>
+
+                    <div class="settings">
+                        <div class="form-group">
+                            <label>Vitesse</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="speed" value="slow">
+                                    <span>Lent</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="speed" value="normal" checked>
+                                    <span>Normal</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="speed" value="fast">
+                                    <span>Rapide</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row-group">
+                            <label class="switch-label">
+                                <span>Collision Murs</span>
+                                <div class="switch">
+                                    <input type="checkbox" id="walls-toggle" checked>
+                                    <span class="slider"></span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button id="start-btn" class="btn btn-primary btn-block">Jouer <i class="fas fa-play"></i></button>
+                </div>
+
+                <!-- Overlay: Pause -->
+                <div id="overlay-pause" class="overlay hidden">
+                    <h2>Pause</h2>
+                    <p>Appuyez sur P pour reprendre</p>
+                    <button id="resume-btn" class="btn btn-primary">Reprendre <i class="fas fa-play"></i></button>
+                    <button id="quit-btn" class="btn btn-danger mt-2">Quitter</button>
+                </div>
+
+                <!-- Overlay: Game Over -->
+                <div id="overlay-gameover" class="overlay hidden">
+                    <h2>Game Over!</h2>
+                    <div class="final-score">
+                        Score final : <strong id="go-score">0</strong>
+                    </div>
+                    <p id="new-record-msg" class="record-msg hidden">🎉 Nouveau Record ! 🎉</p>
+
+                    <div class="actions">
+                        <button id="restart-btn" class="btn btn-primary btn-block">Rejouer <i
+                                class="fas fa-redo"></i></button>
+                        <a href="../index.html#projects" class="btn btn-outline btn-block mt-2">Voir mes projets</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div id="mobile-controls" class="mobile-controls hidden">
+                <div class="d-pad">
+                    <button class="d-btn up" id="btn-up"><i class="fas fa-chevron-up"></i></button>
+                    <div class="d-row">
+                        <button class="d-btn left" id="btn-left"><i class="fas fa-chevron-left"></i></button>
+                        <button class="d-btn right" id="btn-right"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <button class="d-btn down" id="btn-down"><i class="fas fa-chevron-down"></i></button>
+                </div>
+            </div>
+
+            <p class="desktop-hints hidden-mobile">Contrôles : ZQSD ou Flèches directives. P pour Pause.</p>
+        </div>
+    </main>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
