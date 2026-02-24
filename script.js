@@ -216,13 +216,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (textArray.length) setTimeout(type, newTextDelay + 250);
 
     // 9. Multilingual Support
-    const langSelect = document.getElementById("lang-select");
+    const customLang = document.getElementById("custom-lang");
+    const selectedLang = document.getElementById("selected-lang");
+    const langOptions = document.getElementById("lang-options");
 
     // Default language logic
     const savedLang = localStorage.getItem("portfolio-lang") || "fr";
-    if (langSelect) {
-        langSelect.value = savedLang;
-    }
     document.documentElement.lang = savedLang;
 
     // Apply translations function
@@ -263,13 +262,38 @@ document.addEventListener('DOMContentLoaded', () => {
         textArray.push(...translations[savedLang].hero_roles);
     }
 
-    // Event listener for language change
-    if (langSelect) {
-        langSelect.addEventListener("change", (e) => {
-            const newLang = e.target.value;
-            localStorage.setItem("portfolio-lang", newLang);
-            document.documentElement.lang = newLang;
-            applyTranslations(newLang);
+    // Custom language dropdown logic
+    if (customLang && selectedLang && langOptions) {
+        // Initialize displayed selection
+        const updateDisplay = (val) => {
+            const opt = langOptions.querySelector(`[data-value="${val}"]`);
+            if (opt) selectedLang.innerHTML = opt.innerHTML;
+        };
+        updateDisplay(savedLang);
+
+        // Toggle dropdown
+        selectedLang.addEventListener("click", (e) => {
+            e.stopPropagation();
+            langOptions.classList.toggle("show");
+        });
+
+        // Select an option
+        langOptions.querySelectorAll("div").forEach(el => {
+            el.addEventListener("click", () => {
+                const newLang = el.getAttribute("data-value");
+                localStorage.setItem("portfolio-lang", newLang);
+                document.documentElement.lang = newLang;
+                updateDisplay(newLang);
+                applyTranslations(newLang);
+                langOptions.classList.remove("show");
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!customLang.contains(e.target)) {
+                langOptions.classList.remove("show");
+            }
         });
     }
 

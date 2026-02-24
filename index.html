@@ -39,17 +39,22 @@
             </ul>
         </nav>
         <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
-            <!-- Language Selector -->
-            <select id="lang-select"
-                style="background:transparent; border:none; color:var(--text-main); font-family:inherit; font-weight:600; cursor:pointer; outline:none; font-size:1rem;">
-                <option value="fr">FR 🇫🇷</option>
-                <option value="en">EN 🇬🇧</option>
-                <option value="fa">FA 🇮🇷</option>
-                <option value="zh">ZH 🇨🇳</option>
-                <option value="es">ES 🇪🇸</option>
-                <option value="it">IT 🇮🇹</option>
-                <option value="ta">TA 🇮🇳</option>
-            </select>
+            <!-- Language Selector (Custom) -->
+            <div id="custom-lang"
+                style="position:relative; font-weight:600; cursor:pointer; font-size:1rem; user-select:none;">
+                <div id="selected-lang" style="display:flex; align-items:center; gap:6px;">FR 🇫🇷</div>
+                <div id="lang-options" class="lang-options">
+                    <div data-value="fr">FR 🇫🇷</div>
+                    <div data-value="en">EN 🇬🇧</div>
+                    <div data-value="fa">FA 🇮🇷</div>
+                    <div data-value="zh">ZH 🇨🇳</div>
+                    <div data-value="es">ES 🇪🇸</div>
+                    <div data-value="it">IT 🇮🇹</div>
+                    <div data-value="ta" style="display:flex; align-items:center; gap:6px;">TA <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/4/41/Tamil_Eelam_Flag.svg"
+                            alt="Tamil Eelam" style="height:14px; border-radius:1px;"></div>
+                </div>
+            </div>
             <!-- Theme Toggle -->
             <button class="theme-toggle" aria-label="Toggle Dark Mode" id="theme-btn"
                 style="background:none; border:none; font-size:1.5rem; color:var(--text-main); cursor:pointer;">
@@ -200,6 +205,17 @@
                             mobile.</p>
                         <span class="project-tech">PHP • Laravel</span>
                     </div>
+                    <a href="interactive-quiz/index.html"
+                        style="text-decoration: none; color: inherit; display: block;">
+                        <div class="project-card reveal">
+                            <div class="project-icon" style="background: #E8F2FF; color: #3B82F6;">
+                                <i class="fas fa-clipboard-question"></i>
+                            </div>
+                            <h3 data-i18n="proj_7_title">Mini-Quiz Interactif</h3>
+                            <p data-i18n="proj_7_desc">Quiz dynamique sans framework avec stockage local et thèmes.</p>
+                            <span class="project-tech">JS Vanille • HTML • CSS</span>
+                        </div>
+                    </a>
                     <div class="project-card reveal" style="transition-delay: 200ms;">
                         <div class="project-icon" style="background: #FFD6A5; color: #FF9F1C;">
                             <i class="fas fa-address-book"></i>
@@ -379,7 +395,7 @@
     </button>
 
     <!-- Translations & JS -->
-    <script src="translations.js"></script>
+    <script src="translations.js?v=2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
 </body>

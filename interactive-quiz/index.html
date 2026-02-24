@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interactif - Portfolio</title>
+    <meta name="description" content="Mini-projet de quiz interactif développé en HTML, CSS et JS vanille.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">Quiz<span>App</span></div>
+        <button id="theme-toggle" class="btn-icon" aria-label="Basculer le thème (clair/sombre)">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+    </header>
+
+    <main class="container">
+        <!-- Live Region for Accessibility -->
+        <div aria-live="polite" class="sr-only" id="aria-announcer"></div>
+
+        <!-- HOME SCREEN -->
+        <section id="home-screen" class="screen active" aria-labelledby="home-title">
+            <h1 id="home-title">Testez vos connaissances</h1>
+            <p class="subtitle">Sélectionnez une catégorie et une difficulté pour commencer.</p>
+
+            <div class="form-group">
+                <label for="category-select">Catégorie</label>
+                <select id="category-select">
+                    <!-- Options injected by JS -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Difficulté</label>
+                <div class="difficulty-options">
+                    <label class="radio-label">
+                        <input type="radio" name="difficulty" value="Easy" checked>
+                        <span>Facile</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="difficulty" value="Medium">
+                        <span>Moyen</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="difficulty" value="Hard">
+                        <span>Difficile</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row-group">
+                <label class="switch-label">
+                    <span>Activer le chronomètre</span>
+                    <div class="switch">
+                        <input type="checkbox" id="timer-toggle">
+                        <span class="slider"></span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="highscore-display">
+                🏆 Meilleur score : <strong id="best-score-home">0</strong> points
+            </div>
+
+            <button id="start-btn" class="btn btn-primary btn-block">Démarrer le Quiz</button>
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section id="quiz-screen" class="screen hidden" aria-labelledby="quiz-status">
+            <div class="quiz-header">
+                <div class="quiz-progress">
+                    <span id="quiz-status">Question 1/10</span>
+                </div>
+                <div class="quiz-timer hidden" id="timer-display" aria-live="off">
+                    <i class="fas fa-clock"></i> <span id="time-left">15</span>s
+                </div>
+                <div class="quiz-score">Score: <span id="current-score">0</span></div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question-text" class="question-text" aria-live="polite">Chargement de la question...</h2>
+            </div>
+
+            <div id="choices-container" class="choices-grid" role="group" aria-label="Choix de réponses">
+                <!-- Buttons injected by JS -->
+            </div>
+
+            <div id="feedback-container" class="feedback-container hidden" aria-live="assertive">
+                <!-- Feedback and explanation injected by JS -->
+            </div>
+
+            <div class="quiz-footer">
+                <button id="quit-btn" class="btn btn-danger btn-sm">Quitter</button>
+                <button id="next-btn" class="btn btn-primary hidden">Suivant <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <!-- RESULT SCREEN -->
+        <section id="result-screen" class="screen hidden" aria-labelledby="result-title">
+            <div class="result-header">
+                <i class="fas fa-trophy result-icon"></i>
+                <h1 id="result-title">Quiz Terminé !</h1>
+                <p>Votre score final :</p>
+                <div class="final-score"><span id="final-score-value">0</span> points</div>
+                <p id="high-score-msg" class="highscore-msg hidden">🎉 Nouveau meilleur score ! 🎉</p>
+            </div>
+
+            <div class="summary-container">
+                <h3>Résumé de vos réponses</h3>
+                <ul id="summary-list" class="summary-list">
+                    <!-- Summary items injected by JS -->
+                </ul>
+            </div>
+
+            <div class="result-actions">
+                <button id="replay-btn" class="btn btn-primary">Rejouer</button>
+                <a href="#code-source" class="btn btn-secondary"><i class="fab fa-github"></i> Voir le code</a>
+                <a href="../index.html#projects" class="btn btn-outline">Retour au portfolio</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
