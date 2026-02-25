@@ -16,9 +16,15 @@ export function initRPG() {
     if (initialized) return;
     initialized = true;
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1a1a24);
-    scene.fog = new THREE.FogExp2(0x1a1a24, 0.02);
+    // ----- INJECT ALERT DEBUGGER -----
+    window.onerror = (msg, url, line) => { alert('ERR: ' + msg + ' at ' + line); };
+    let step = 1;
+    try {
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1a1a24);
+        scene.fog = new THREE.FogExp2(0x1a1a24, 0.02);
+        step = 2;
+    } catch (e) { alert('SCENE ERR: ' + e); }
 
     camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(0, 10, 15);
@@ -29,6 +35,7 @@ export function initRPG() {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
+    step = 3;
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
@@ -45,11 +52,18 @@ export function initRPG() {
     dirLight.shadow.camera.top = 50;
     dirLight.shadow.camera.bottom = -50;
     scene.add(dirLight);
+    step = 4;
 
-    world = new World(scene);
-    player = new Player(scene);
-    controls = new Controls();
-    ui = new UI();
+    try {
+        world = new World(scene);
+        step = 5;
+        player = new Player(scene);
+        step = 6;
+        controls = new Controls();
+        step = 7;
+        ui = new UI();
+        step = 8;
+    } catch (e) { alert('ERR CREATING OBJS: ' + e); }
 
     // Interaction Binding
     document.addEventListener('keydown', (e) => {
@@ -98,8 +112,18 @@ function loop(time) {
     animFrameId = requestAnimationFrame(loop);
     if (!isRPGMode) return;
 
-    const dt = Math.min((time - lastTime) / 1000, 0.1);
+    if (!lastTime) lastTime = time;
+    let dt = (time - lastTime) / 1000;
+    // Cap dt and prevent negative
+    if (dt > 0.1) dt = 0.1;
+    if (dt < 0) dt = 0.016;
+
     lastTime = time;
+
+    // Safety check just in case camera corrupted
+    if (isNaN(camera.position.x)) {
+        camera.position.set(0, 10, 15);
+    }
 
     controls.update();
 
@@ -136,7 +160,7 @@ function toggleRpgMode(enable) {
         document.body.classList.add('rpg-active');
         rpgContainer.classList.remove('hidden');
         initRPG();
-        lastTime = performance.now();
+        lastTime = 0; // Reset lastTime so loop initializes it
     } else {
         document.body.classList.remove('rpg-active');
         rpgContainer.classList.add('hidden');

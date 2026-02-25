@@ -79,8 +79,6 @@ export class World {
             { id: 'contact', x: 10, z: 10, color: 0x00a8ff, label: 'Contact' }
         ];
 
-        const fontLoader = new THREE.FontLoader(); // Just a simple placeholder label for now
-
         zonesData.forEach(data => {
             // Main structure
             const geo = new THREE.CylinderGeometry(2, 2, 0.5, 8);
